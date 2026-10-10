@@ -1,0 +1,23 @@
+# AVV network settings. Add these lines to your agent's settings file (config.yaml) once.
+# - If the file already has a line that starts with "mcp_servers:" or "platforms:", don't add
+#   a second one: put the lines that follow it here under the one that's there, at the same
+#   indent. A second one would wipe out what's under the first, such as your WhatsApp settings.
+# - Your two keys are read from your agent's Keys page, by these names: NETWORK_TOOLS_KEY and
+#   NETWORK_ROUTE_SECRET. Never type a key itself into this file.
+# - Restart your agent afterwards, so it reads them.
+mcp_servers:
+  network:
+    url: "{public_url}/mcp/{person_id}"
+    headers:
+      Authorization: "Bearer ${NETWORK_TOOLS_KEY}"
+platforms:
+  webhook:
+    enabled: true
+    extra:
+      routes:
+        network:
+          secret: "${NETWORK_ROUTE_SECRET}"
+          deliver: whatsapp
+          deliver_only: true
+          mirror_to_session: true
+          prompt: "{text}"
