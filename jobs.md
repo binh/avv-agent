@@ -1,15 +1,17 @@
 # Scheduled jobs for your agent
 
-These jobs run a small script on a schedule without using the model ("no-agent" jobs). Hermes sends you on WhatsApp what the script prints, word for word. When it prints nothing, nothing is sent.
+These jobs run a small script on a schedule without using the model ("no-agent" jobs). Hermes sends you what the script prints, on the platform you chat with your agent on (WhatsApp, Telegram or Discord), word for word. When it prints nothing, nothing is sent.
 
 You can add a job in two ways:
 
 - ask your agent to run the commands below in its terminal, or run them there yourself;
-- or use your agent's dashboard: on the Cron page, tick "no_agent", put the script's file name in Script, choose whatsapp to deliver to, and use the schedule shown below.
+- or use your agent's dashboard: on the Cron page, tick "no_agent", put the script's file name in Script, choose your platform (whatsapp, telegram or discord) to deliver to, and use the schedule shown below.
 
 A job's script must be in your agent's scripts folder, so the commands first copy it there from this repo.
 
 ## The weekly skills update (add it once)
+
+If your agent messages you on Telegram or Discord, write `--deliver telegram` or `--deliver discord` instead of `--deliver whatsapp` in the last line: the same platform you chose on your setup link.
 
 ```bash
 scripts_dir="${HERMES_HOME:-$HOME/.hermes}/scripts"
@@ -41,7 +43,7 @@ Normally the AVV network service posts its messages to your agent's `network` ro
    - `mirror_delivery: true`: they're copied into your chat's history, so your agent knows what you're replying to.
    - Both apply to your other scheduled jobs too.
 
-3. Restart your agent, then add the job:
+3. Restart your agent, then add the job. If your agent messages you on Telegram or Discord, write `--deliver telegram` or `--deliver discord` instead of `--deliver whatsapp` in the last line: the same platform you chose on your setup link.
 
    ```bash
    scripts_dir="${HERMES_HOME:-$HOME/.hermes}/scripts"
@@ -50,7 +52,7 @@ Normally the AVV network service posts its messages to your agent's `network` ro
    hermes cron create "* * * * *" --no-agent --script network_fetch.py --deliver whatsapp --failure-deliver local --name avv-network-fetch
    ```
 
-- Every minute it asks the service for the messages that are due, and you get them on WhatsApp, exactly as the service wrote them. When nothing is due, nothing is sent.
+- Every minute it asks the service for the messages that are due, and you get them on your platform, exactly as the service wrote them. When nothing is due, nothing is sent.
 - It reads NETWORK_TOOLS_KEY and NETWORK_DUE_URL from your Keys page. Without NETWORK_DUE_URL, it works the address out from your settings file (the `network` tools server's `url`).
 - If the service can't be reached for 10 minutes, you get one plain line, then at most one an hour while it lasts.
 - `--failure-deliver local` stops Hermes from sending its own failure notice every minute if the script itself breaks. A broken script then shows only as messages that stop arriving: tell the AVV admin if they do.

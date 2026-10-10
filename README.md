@@ -2,9 +2,9 @@
 
 What an AVV teammate's Hermes agent needs to work with the AVV network service: the AVV skills, the settings your setup link fills in for you, the rules for your agent's persona, and two small scripts for scheduled jobs.
 
-The AVV network service sends you, through your agent's WhatsApp, briefs before outside meetings, an evening digest, a question after each outside meeting, and follow-up reminders. It also gives your agent tools to save the people you tell it about to Attio, file your answers about meetings, keep your follow-up list, and look people up.
+The AVV network service sends you, through your agent on WhatsApp, Telegram or Discord (in a private chat with only you, never a group or a server channel), briefs before outside meetings, an evening digest, a question after each outside meeting, and follow-up reminders. It also gives your agent tools to save the people you tell it about to Attio, file your answers about meetings, keep your follow-up list, and look people up.
 
-Nothing here is secret: your keys live only on your agent's Keys page.
+Nothing here is secret: your keys live only on your agent's Keys page (or your agent's `.env` file, if you run it yourself).
 
 ## What's here
 
@@ -34,8 +34,8 @@ The AVV admin sends you the setup guide and your setup link. In short:
 
 Your setup link shows the settings filled in for you. Add them to your agent's settings file (config.yaml) once, from your agent's dashboard (its Files page), or paste them to your agent and ask it to merge them into config.yaml without removing anything and to show you the result.
 
-- If the file already has a line that starts with `mcp_servers:` or `platforms:`, don't add a second one: put the new lines under the one that's there, at the same indent. A second one would wipe out what's under the first, such as your WhatsApp settings.
-- The settings read your two keys from the Keys page by name: `NETWORK_TOOLS_KEY` and `NETWORK_ROUTE_SECRET`. Add both keys there first, with exactly those names. Never type a key into the settings file or a chat.
+- If the file already has a line that starts with `mcp_servers:` or `platforms:`, don't add a second one: put the new lines under the one that's there, at the same indent. A second one would wipe out what's under the first, such as your WhatsApp, Telegram or Discord settings.
+- The settings read your two keys from the Keys page (or your agent's `.env` file, if you run it yourself) by name: `NETWORK_TOOLS_KEY` and `NETWORK_ROUTE_SECRET`. Add both keys there first, with exactly those names. Never type a key into the settings file or a chat.
 - Restart your agent afterwards, so it reads them.
 
 The rules (`standing-rules.md`) go below what's already in your agent's persona file (SOUL.md).
