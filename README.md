@@ -4,12 +4,15 @@ What an AVV teammate's Hermes agent needs to work with the AVV network service: 
 
 The AVV network service sends you, through your agent on WhatsApp, Telegram or Discord (in a private chat with only you, never a group or a server channel), briefs before outside meetings, an evening digest, a question after each outside meeting, and follow-up reminders. It also gives your agent tools to save the people you tell it about to Attio, file your answers about meetings, keep your follow-up list, and look people up.
 
+**How to use your agent day to day:** `GUIDE.md` covers briefs, questions after meetings, your follow-up list and reminders, saving and looking up people, and what to say back.
+
 Nothing here is secret: your keys live only on your agent's Keys page (or your agent's `.env` file, if you run it yourself).
 
 ## What's here
 
 | Path | What it is |
 |---|---|
+| `GUIDE.md` | How to use your agent: what the service sends you, when, and what to say back. |
 | `skills/` | The AVV skills: `commitments`, `contact-capture`, `meeting-brief`, `meeting-debrief`. They tell your agent how to use the AVV tools. |
 | `settings-snippet.yaml` | The template of the settings you add to your agent once. Your setup link shows it filled in for you: use that one. |
 | `standing-rules.md` | Rules for your agent's persona file. Your setup link shows them too. |
