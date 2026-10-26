@@ -13,7 +13,8 @@ Nothing here is secret: your keys live only on your agent's Keys page (or your a
 | Path | What it is |
 |---|---|
 | `GUIDE.md` | How to use your agent: what the service sends you, when, and what to say back. |
-| `skills/` | The AVV skills: `commitments`, `contact-capture`, `meeting-brief`, `meeting-debrief`. They tell your agent how to use the AVV tools. |
+| `skills/` | The AVV skills: `commitments`, `contact-capture`, `investor-introductions`, `meeting-brief`, `meeting-debrief`, `message-context`, `person-context`. They tell your agent how to use the AVV tools. |
+| `context-route-snippet.yaml` | Optional settings for message context after briefs, added only once quicker.chat is connected. |
 | `settings-snippet.yaml` | The template of the settings you add to your agent once. Your setup link shows it filled in for you: use that one. |
 | `standing-rules.md` | Rules for your agent's persona file. Your setup link shows them too. |
 | `jobs.md` | How to add the weekly skills update, and the fallback job (only if you're asked). |
@@ -27,11 +28,18 @@ The AVV admin sends you the setup guide and your setup link. In short:
 1. Add the AVV skills, once. Ask your agent to run this in its terminal, or run it there yourself:
 
    ```bash
-   for s in commitments contact-capture meeting-brief meeting-debrief; do hermes skills install "binh/avv-agent/skills/$s" --yes; done
+   for s in commitments contact-capture investor-introductions meeting-brief meeting-debrief message-context person-context; do hermes skills install "binh/avv-agent/skills/$s" --yes; done
    ```
 
 2. Add the weekly job that keeps them up to date: `jobs.md`, "The weekly skills update".
 3. Open your setup link and follow it: it shows your two keys once, the settings to add, and the rules for your persona file.
+
+**Already set up?** AVV added three skills (`investor-introductions`, `message-context`, `person-context`), and the copy of `update_skills.sh` on your agent doesn't update itself. Run these once in your agent's terminal: the first installs the three skills, the second downloads the weekly update's script again, so it installs any of these seven that's missing; a skill AVV adds later needs this script downloaded again.
+
+```bash
+for s in investor-introductions message-context person-context; do hermes skills install "binh/avv-agent/skills/$s" --yes; done
+curl -fsSL https://raw.githubusercontent.com/binh/avv-agent/main/scripts/update_skills.sh -o "${HERMES_HOME:-$HOME/.hermes}/scripts/update_skills.sh"
+```
 
 ## Adding the settings
 

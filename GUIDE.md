@@ -164,6 +164,26 @@ What does linkedin.com/in/linh-vo-example do now?
 
 Give a LinkedIn link, an email, an Attio link, or a name with a company (a name alone isn't enough). You get their current job, past roles and education, and what Attio already has. If the match isn't certain, your agent asks "is this them?" first. Nothing is saved until you say "save". Look-ups have a monthly limit shared by the whole team.
 
+With Happenstance connected (optional, see the setup guide), "who is" also searches your own network, and your agent says how many Happenstance credits it used.
+
+## Talking about a person
+
+When you mention someone, your agent first looks at what it can reach about them: your recent messages with them (with quicker.chat, once it's available), your network (with Happenstance), and what AVV holds. Then it answers. It uses what's connected for you and skips the rest.
+
+## Investor introductions
+
+```text
+Which investors could fill Acme's seed round?
+```
+
+Your agent reads AVV's VCs list in Attio (or another company list you name), checks it against what it knows, and gives you a short list. You pick who gets an intro, the founder checks each name first, and your agent writes the drafts in chat for you to copy and send. It never sends anything itself.
+
+## Recent messages after a brief
+
+Once quicker.chat is connected and the AVV admin has turned this on for you, a brief an hour before a meeting and the evening digest can be followed by one short message: what you and the people you're meeting have said to each other recently, with the brief's ref. If there's nothing recent, nothing comes. On WhatsApp, if a follow-up didn't come (for example, your Mac was asleep), your agent tries once more at 8:15 am, for meetings still ahead.
+
+Each follow-up opens with the meeting and the people's names, since your agent doesn't keep it in your everyday chat: if you reply to it, say which meeting you mean.
+
 ## Travelling
 
 ```text

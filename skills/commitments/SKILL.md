@@ -45,5 +45,5 @@ One list holds three kinds of thing, each with a ref (like r2p8):
 
 ## Sending the service's replies
 - Send the tool's reply to the person you work for as it is: no opening line (like "Here's the confirmation:"), no summary or comments on it, no sign-off, and don't reword, shorten, or reorder it.
-- If you did something else in the same turn that the reply doesn't cover (for example, you sent an intro email), say so first, in one or two short sentences.
+- If you did something else in the same turn that the reply doesn't cover (for example, you put a draft in someone's chat box), say so first, in one or two short sentences.
 - The reply says when the service chose something on purpose, like a contact type taken from Attio. Don't call that a mistake or a problem, and don't list it as one.

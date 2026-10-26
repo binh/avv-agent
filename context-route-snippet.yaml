@@ -1,0 +1,52 @@
+# Message context after AVV briefs (optional). Add this only once quicker.chat is connected to
+# your agent. It adds a second, read-only quicker.chat entry and a route that answers the AVV
+# service's "Message context request" notes with your recent messages with the people you're
+# meeting, sent to your home chat (the one you set with /sethome).
+# How to add it safely to your settings file (config.yaml):
+# - After "deliver:" below, replace the word in curly brackets (with the brackets) by
+#   whatsapp, telegram or discord: the platform you chat with your agent on. Left as it is,
+#   the route doesn't work.
+# - Your file already has "mcp_servers:", "platforms:", "webhook:", "extra:" and "routes:"
+#   lines from the AVV settings, and maybe an "agent:" line. Never add a second one of any of
+#   them: a second "webhook:"
+#   quietly drops "enabled: true" and your "network" route. Add only the new lines (the
+#   quicker-chat-read entry, and the network-context route) under the ones already there, at
+#   the same indent.
+# - If your file already has an "agent:" line, put "disabled_toolsets:" under it; if it
+#   already has a "disabled_toolsets:" list, add x_search to that list rather than replacing it.
+# - Never switch quicker-chat-read off or remove it while the network-context route is there:
+#   the route would then get every tool server your agent has. Remove both together.
+# - Keep the context engine at its default and no plugins enabled, or the route's turn may get
+#   more tools than quicker.chat's read tools.
+# - Restart your agent afterwards.
+mcp_servers:
+  quicker-chat-read:
+    # Copy the connection settings (command, args and env, or url and headers) from your own
+    # quicker-chat entry here, unchanged. Only the tools below differ.
+    tools:
+      include:
+        - app.ping
+        - accounts.list
+        - conversations.list
+        - conversations.get
+        - messages.list
+        - messages.recent
+        - messages.search
+        - contacts.search
+        - contacts.list
+        - tags.list
+        - reminders.list
+      resources: false
+      prompts: false
+agent:
+  disabled_toolsets: [x_search]
+platforms:
+  webhook:
+    extra:
+      routes:
+        network-context:
+          secret: "${NETWORK_ROUTE_SECRET}"
+          deliver: {deliver}
+          prompt: "{text}"
+          skills: [message-context]
+          toolsets: [quicker-chat-read]
