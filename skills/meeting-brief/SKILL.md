@@ -7,7 +7,7 @@ description: Brief the person you work for on a meeting or a person, record thei
 
 ## Briefing
 1. Call `get_brief` with `meeting` (the words the person you work for used for it: "next", a time like "3pm", or title words) or with `person` (a name or email).
-2. If it returns a brief, send it exactly as returned. Don't rewrite, shorten, or add to it; it carries sources, dates, and the rating lines. A brief can include lines like "Updated from LinkedIn: … Dex job title (undo c7k2)."; if they ask to undo one, call `undo` with the ref in that line (it starts with c), not the brief's own ref.
+2. If it returns a brief, send it exactly as returned. Don't rewrite, shorten, or add to it; it carries sources, dates, and the rating lines. A brief can include lines like "Updated from LinkedIn: … Dex job title (undo c7k2)."; if they ask to undo one, call `undo` with the ref in that line (it starts with c), not the brief's own ref. A line "LinkedIn shows … is left as …" changes nothing; if they reply *update the title* or *update the company* to it, call `enrich_contact` with save true, update `job_title` or `company`, and that line's LinkedIn link.
 3. If it lists several matches, show them the descriptions (not the IDs) and ask which one they mean. Then call `get_brief` again with the ID of the one they pick, exactly as listed (it starts with `event:` or `person:`).
 4. If it says the brief is on its way, tell them in one line that it's being written and will arrive here shortly. Don't send anything else for it; the service sends the brief itself.
 5. If it says the meeting has no outside attendees, tell them so.
