@@ -16,8 +16,10 @@
 #   already has a "disabled_toolsets:" list, add x_search to that list rather than replacing it.
 # - Never switch quicker-chat-read off or remove it while the network-context route is there:
 #   the route would then get every tool server your agent has. Remove both together.
-# - Keep the context engine at its default and no plugins enabled, or the route's turn may get
-#   more tools than quicker.chat's read tools.
+# - Plugins are your choice: AVV doesn't check or limit them. We suggest Hermes's official ones
+#   (the Official tier in the plugin catalog, hermes-agent.nousresearch.com/docs/plugins). Hermes
+#   gives this route's turn, besides quicker.chat's read tools, the tools of every plugin you
+#   switch on and of a context engine other than the default.
 # - Restart your agent afterwards.
 mcp_servers:
   quicker-chat-read:

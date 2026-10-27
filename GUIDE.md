@@ -178,6 +178,14 @@ Which investors could fill Acme's seed round?
 
 Your agent reads AVV's VCs list in Attio (or another company list you name), checks it against what it knows, and gives you a short list. You pick who gets an intro, the founder checks each name first, and your agent writes the drafts in chat for you to copy and send. It never sends anything itself.
 
+## Raises
+
+```text
+Start a raise for Acme's Series A
+```
+
+Your agent asks whether to share the raise's list with AVV and when the raise should close (it proposes 3 months from today if you don't know), then makes the raise's own list in Attio, one row per investor firm. It asks for the latest blurb and deck link before drafting, picks the best way in to each firm (an AVV owner who knows them, a warm intro, an email, LinkedIn), and drafts for you to send. When the best way in is a teammate, it drafts in their voice and, after your OK, hands it to their agent; a hand-off for you arrives the same way, and you send it as yourself or say no. Tell your agent when you've sent something: it reminds you to follow up 5 business days later. Statuses change only when you say so. Each morning after your reminders, a separate raise message tells you what others changed and asks about a raise past its close date: delete the list in Attio yourself, keep it, or pick a new date.
+
 ## Recent messages after a brief
 
 Once quicker.chat is connected and the AVV admin has turned this on for you, a brief an hour before a meeting and the evening digest can be followed by one short message: what you and the people you're meeting have said to each other recently, with the brief's ref. If there's nothing recent, nothing comes. On WhatsApp, if a follow-up didn't come (for example, your Mac was asleep), your agent tries once more at 8:15 am, for meetings still ahead.

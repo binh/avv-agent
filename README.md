@@ -2,7 +2,9 @@
 
 What an AVV teammate's Hermes agent needs to work with the AVV network service: the AVV skills, the settings your setup link fills in for you, the rules for your agent's persona, and two small scripts for scheduled jobs.
 
-The AVV network service sends you, through your agent on WhatsApp, Telegram or Discord (in a private chat with only you, never a group or a server channel), briefs before outside meetings, an evening digest, a question after each outside meeting, and follow-up reminders. It also gives your agent tools to save the people you tell it about to Attio, file your answers about meetings, keep your follow-up list, and look people up.
+The AVV network service sends you, through your agent on WhatsApp, Telegram or Discord (in a private chat with only you, never a group or a server channel), briefs before outside meetings, an evening digest, a question after each outside meeting, and follow-up reminders. It also gives your agent tools to save the people you tell it about to Attio, file your answers about meetings, keep your follow-up list, look people up, and run a portfolio company's raise: its own Attio list of investor firms, drafts for you to send, hand-offs to teammates, and follow-ups.
+
+To start or change a raise, your Attio key needs list read and write (`list_configuration:read-write` and `list_entry:read-write`). With read only, your agent can read raise lists but can't change them: ask the AVV admin for a key with those.
 
 **How to use your agent day to day:** `GUIDE.md` covers briefs, questions after meetings, your follow-up list and reminders, saving and looking up people, and what to say back.
 
@@ -50,6 +52,10 @@ Your setup link shows the settings filled in for you. Add them to your agent's s
 - Restart your agent afterwards, so it reads them.
 
 The rules (`standing-rules.md`) go below what's already in your agent's persona file (SOUL.md).
+
+## Plugins
+
+Plugins are your choice, and AVV doesn't check or limit them. We suggest Hermes's official plugins, maintained by Nous: in Hermes's plugin catalog (hermes-agent.nousresearch.com/docs/plugins), filter by Official, then install one with `hermes plugins install <name>`.
 
 ## Keeping up to date
 
