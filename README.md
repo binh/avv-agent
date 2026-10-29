@@ -22,6 +22,7 @@ Nothing here is secret: your keys live only on your agent's Keys page (or your a
 | `jobs.md` | How to add the weekly skills update, and the fallback job (only if you're asked). |
 | `scripts/update_skills.sh` | The weekly skills update's script. |
 | `scripts/network_fetch.py` | The fallback job's script. |
+| `.github/` | The deploy notice to #agent-alerts after each merge to main. You don't need it. |
 
 ## Setting up your agent
 
@@ -61,6 +62,10 @@ Plugins are your choice, and AVV doesn't check or limit them. We suggest Hermes'
 
 - Skills update themselves through the weekly job. To update one now, ask your agent to run `hermes skills update <name>`.
 - The settings and the rules don't update themselves. If AVV changes them, the AVV admin asks you to add the new version.
+
+## Deploy notices
+
+After each merge to `main`, Khoa posts a notice to #agent-alerts (`.github/workflows/announce.yml`). It shows the title, the short commit id and who merged it. Titles starting with `chore:`, `docs:`, `ci:` or `build:` get no notice. Khoa must be in #agent-alerts (`/invite @Khoa`). The Slack token is read from Bitwarden at run time, using the repo's `BWS_ACCESS_TOKEN` Actions secret, and is never stored here.
 
 ## About this repo
 

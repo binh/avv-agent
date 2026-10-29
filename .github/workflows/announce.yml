@@ -1,0 +1,35 @@
+name: Deploy notice
+
+# Merging to main is the deploy for avv-agent: teammates' agents get the change at their
+# weekly skills update. Khoa posts a notice to #agent-alerts after each merge. A pull request
+# titled chore:, docs:, ci: or build: gets no notice (.github/scripts/deploy_notice.py).
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      HAS_BWS: ${{ secrets.BWS_ACCESS_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install bws
+        if: env.HAS_BWS == 'true'
+        uses: ./.github/actions/install-bws
+
+      - name: Post to #agent-alerts
+        env:
+          # .github/scripts/secrets_exec.py reads Khoa's SLACK_BOT_TOKEN from Bitwarden.
+          BWS_ACCESS_TOKEN: ${{ secrets.BWS_ACCESS_TOKEN }}
+          AGENT_ALERTS_CHANNEL: C0B2A53S84F
+          COMMIT_SHA: ${{ github.event.head_commit.id }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          COMMIT_AUTHOR: ${{ github.event.head_commit.author.name }}
+          BRANCH: ${{ github.ref_name }}
+        run: python3 .github/scripts/secrets_exec.py python3 .github/scripts/deploy_notice.py

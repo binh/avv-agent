@@ -1,0 +1,23 @@
+# Copied from the AVV secrets-manager repo (runtime/), with only this comment and the wording of the description changed.
+name: Install bws
+description: >-
+  Installs the Bitwarden Secrets Manager CLI that `.github/scripts/secrets_exec.py` runs. The version and
+  checksum are the ones pinned in the AVV secrets-manager repo (runtime/bws.Dockerfile); change them there first.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        BWS_VERSION: "2.1.0"
+        # no-values-check: public
+        BWS_SHA256: ba8233c3a4aee5d43e3c73bbd04d99e9bc5aba13bbbfd06d89b073abe732b860
+      run: |
+        dir="$RUNNER_TEMP/bws"
+        mkdir -p "$dir"
+        curl -fsSL --retry 3 -o "$dir/bws.zip" \
+          "https://github.com/bitwarden/sdk-sm/releases/download/bws-v${BWS_VERSION}/bws-x86_64-unknown-linux-gnu-${BWS_VERSION}.zip"
+        echo "${BWS_SHA256}  $dir/bws.zip" | sha256sum -c --quiet -
+        unzip -q -o "$dir/bws.zip" -d "$dir"
+        chmod 755 "$dir/bws"
+        rm "$dir/bws.zip"
+        echo "$dir" >> "$GITHUB_PATH"
