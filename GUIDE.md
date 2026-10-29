@@ -132,25 +132,43 @@ Your evening digest also ends with "Open items": what's due in the next 2 days o
 
 ## Saving people
 
-Tell your agent about someone you met, and they're saved to Attio within seconds:
+Tell your agent about someone you met, or send a company as a deal or an LP firm:
 
 ```text
 Met Linh Vo, CFO at Acme, at the fintech dinner. Sharp, raising a seed round in Q1. I'll send her our deck by Friday.
 ```
 
-You can also send a business card photo, a screenshot, a LinkedIn link, a voice note, a shared contact, or a forwarded message.
+You can send text, a business card photo, a screenshot, a LinkedIn link, a voice note, a shared contact, a forwarded message, a website, or a deck. Your agent passes what you sent to the service; the service decides where to save it and what to ask.
 
-- Your agent asks only for what's missing, in one message (often a work contact's email). Nothing is saved until you answer.
-- Attio gets the person, their company, a meeting note, and a task for each thing you said you'll do. People are matched by exact email first, so you don't get duplicates.
-- Only blank fields are filled. No Attio person or company is ever merged or deleted.
-- A new founder or LP is also sent to AVV's deal or LP intake.
-- Anything you say is private stays out of Attio. It's kept just for your own briefs (in Dex, if it's on for you).
-- A personal contact, or a message that's private as a whole, needs Dex, which is off unless the AVV admin has turned it on for you (with an API key you make in Dex). Until then, your agent tells you it couldn't save it.
+**Handled without a question**, apart from a missing email or website:
+- A founder of a new company: person, company, deal note, stated tasks, and deal intake.
+- A new deal website or deck: company, note and deal intake. No founder is needed. A named founder is saved too.
+- A founder whose named company is already in the pipeline or portfolio: notes, no intake; the reply says why.
+- A new LP person or firm: person and/or company, note, stated tasks and LP intake.
+- An LP whose person or firm already links to an LP record: note and stated tasks, no intake.
+- A co-investor or other work contact: person, company, note and stated tasks, no intake.
+- A friend or family member: Dex only, when connected.
+- "Who is X?" or "look X up": a look-up, with nothing saved.
+
+**What it asks:**
+- "Who is this about?" when text reads like someone else's words.
+- The service asks when personal or work, the type, or a person's role in a deal isn't clear; when your type and Attio disagree in a way that changes what is written or sent; or when a website, card or link arrives with nothing said about what to do.
+- When Attio already knows someone's type, the capture is saved as work without asking personal or work. If several people's answers mix personal and work, send them separately.
+- A founder named with only a company name and a personal email can get one question: "What's Acme's website? If there isn't one, say so." The service asks once when intake needs a website and neither Attio nor a work email supplies it, with no single exact company match. If there isn't one, intake goes by name and no Attio company is created.
+- If a founder names another company and their linked or email company is already a deal, the service asks whether the named company is new. A yes sends it to deal intake. The old company link stays.
+- It also asks for a missing email, whether to save a personal contact as work too, or whose follow-up it is when needed. All service questions come together, word for word. Nothing from that message is saved until you answer.
+
+**Good to know:**
+- Companies without a named founder are saved separately, one per capture. They get company notes and tasks, without meeting wording. An LP firm needs no person.
+- A passed-on deal names who passed it on, by name only, never as the founder. They aren't saved as a contact unless you ask. "Passed on by" applies to everyone else in the same capture too.
+- Only blank fields are filled. No Attio person or company is ever merged or deleted. Teammates' intake goes by a signed direct call.
+- Anything you say is private stays out of Attio. A personal contact or a whole private message needs Dex, which is off unless the AVV admin has connected it for you with an API key you make in Dex. A company deal can't be private.
 
 **Fixing and undoing:**
 - **Fix:** "she's CTO, not CEO" updates the record and rewrites the note.
+- For a job change, the save goes through with the existing company link and the reply offers: "Attio has Lan Pham at Acme. Reply 'Lan Pham is at Beta' to change it." Your answer changes the company link in Attio and Dex, and the title if you gave one. A different email domain alone doesn't trigger this offer. A correction never relinks a founder whose capture named another company, or whose Attio link predates the capture.
 - **Undo:** "undo" within 24 hours removes what was saved. Attio records it created are listed for you to remove by hand.
-- Some things can't be fixed in place (personal or work, the type of contact, follow-ups, private notes). For those, undo and send it again.
+- Personal or work, contact type, follow-ups and private remarks can't be fixed in place: undo and send again. A company capture also needs undo and a fresh capture for any correction.
 
 ## Looking someone up
 
