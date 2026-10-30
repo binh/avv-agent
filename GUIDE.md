@@ -143,7 +143,8 @@ You can send text, a business card photo, a screenshot, a LinkedIn link, a voice
 **Handled without a question**, apart from a missing email or website:
 - A founder of a new company: person, company, deal note, stated tasks, and deal intake.
 - A new deal website or deck: company, note and deal intake. No founder is needed. A named founder is saved too.
-- A founder whose named company is already in the pipeline or portfolio: notes, no intake; the reply says why.
+- A founder whose named company is already in the investment pipeline, with a deck (a PDF, PowerPoint or Keynote file, or a DocSend, Drive or similar link): notes, and the deck goes to deal intake again as a re-pitch. Without a deck, notes only, and the reply says why.
+- A founder whose company is already in the portfolio: notes, never intake.
 - A new LP person or firm: person and/or company, note, stated tasks and LP intake.
 - An LP whose person or firm already links to an LP record: note and stated tasks, no intake.
 - A co-investor or other work contact: person, company, note and stated tasks, no intake.
