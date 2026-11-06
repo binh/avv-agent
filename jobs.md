@@ -20,13 +20,13 @@ curl -fsSL https://raw.githubusercontent.com/binh/avv-agent/main/scripts/update_
 hermes cron create "0 9 * * 1" --no-agent --script update_skills.sh --deliver whatsapp --name avv-skills-update
 ```
 
-- It runs on Mondays at 9:00 am, your agent's time. It checks the seven AVV skills and updates the ones that changed in this repo.
-- When everything is fine, you hear nothing. When something goes wrong, you get one plain line saying what.
+- It runs on Mondays at 9:00 am, your agent's time. It checks the skills listed in `skills.txt`, installs any you don't have, and updates the ones that changed in this repo.
+- When everything is fine, you hear nothing. When it installs a new AVV skill, or something goes wrong, you get one plain line saying what.
 - A skill you changed on your agent is left as it is, and the line says so. AVV's version replaces your change only when you ask your agent to run `hermes skills update <name> --force`.
 - An AVV skill you remove from your agent on purpose comes back at the next weekly update.
 - To see your jobs: `hermes cron list`.
 
-**Already set up?** AVV added three skills (`investor-introductions`, `message-context`, `person-context`), and the copy of `update_skills.sh` on your agent doesn't update itself. Run these once in your agent's terminal: the first installs the three skills, the second downloads the weekly update's script again, so it installs any of these seven that's missing; a skill AVV adds later needs this script downloaded again.
+**Already set up?** AVV added three skills (`investor-introductions`, `message-context`, `person-context`), and the copy of `update_skills.sh` on your agent doesn't update itself. Run these once in your agent's terminal: the first installs the three skills, the second downloads the weekly update's script again, which now reads AVV's list of skills from this repo. You only need to do this once: a skill AVV adds later reaches your agent at the next weekly update. If you already have the three skills, the first line just says so: that's fine, and you don't need `--force`.
 
 ```bash
 for s in investor-introductions message-context person-context; do hermes skills install "binh/avv-agent/skills/$s" --yes; done

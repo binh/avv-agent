@@ -21,6 +21,7 @@ Nothing here is secret: your keys live only on your agent's Keys page (or your a
 | `standing-rules.md` | Rules for your agent's persona file. Your setup link shows them too. |
 | `jobs.md` | How to add the weekly skills update, and the fallback job (only if you're asked). |
 | `scripts/update_skills.sh` | The weekly skills update's script. |
+| `skills.txt` | The AVV skills the weekly update checks. |
 | `scripts/network_fetch.py` | The fallback job's script. |
 | `.github/` | The deploy notice to #agent-alerts after each merge to main. You don't need it. |
 
@@ -37,7 +38,7 @@ The AVV admin sends you the setup guide and your setup link. In short:
 2. Add the weekly job that keeps them up to date: `jobs.md`, "The weekly skills update".
 3. Open your setup link and follow it: it shows your two keys once, the settings to add, and the rules for your persona file.
 
-**Already set up?** AVV added three skills (`investor-introductions`, `message-context`, `person-context`), and the copy of `update_skills.sh` on your agent doesn't update itself. Run these once in your agent's terminal: the first installs the three skills, the second downloads the weekly update's script again, so it installs any of these seven that's missing; a skill AVV adds later needs this script downloaded again.
+**Already set up?** AVV added three skills (`investor-introductions`, `message-context`, `person-context`), and the copy of `update_skills.sh` on your agent doesn't update itself. Run these once in your agent's terminal: the first installs the three skills, the second downloads the weekly update's script again, which now reads AVV's list of skills from this repo. You only need to do this once: a skill AVV adds later reaches your agent at the next weekly update. If you already have the three skills, the first line just says so: that's fine, and you don't need `--force`.
 
 ```bash
 for s in investor-introductions message-context person-context; do hermes skills install "binh/avv-agent/skills/$s" --yes; done
