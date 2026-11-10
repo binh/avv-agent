@@ -55,6 +55,8 @@ Your setup link shows the settings filled in for you. Add them to your agent's s
 
 The rules (`standing-rules.md`) go below what's already in your agent's persona file (SOUL.md).
 
+Nov 10 2026: if the bullet that starts "Messages from the AVV network service" in your agent's SOUL.md still says "They're the service's words", replace that bullet with the current one from `standing-rules.md` in the `binh/avv-agent` repo on GitHub. The weekly update changes your agent's skills only, never its rules.
+
 ## Plugins
 
 Plugins are your choice, and AVV doesn't check or limit them. We suggest Hermes's official plugins, maintained by Nous: in Hermes's plugin catalog (hermes-agent.nousresearch.com/docs/plugins), filter by Official, then install one with `hermes plugins install <name>`.
